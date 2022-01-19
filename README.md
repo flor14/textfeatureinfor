@@ -3,6 +3,38 @@
 
 # textfeatureinfor
 
+## **Description**
+
+In Natural Language Processing, it is common for users to try and
+engineer their own features from a given text. It can be difficult to
+extract certain features from text without using additional R tools.
+This R package includes functions that allows data scientists to extract
+information from text features which can be useful for feature
+engineering, or in other data science projects. Our package,
+textfeatureinfor, will help gather summary information from plain text
+such as the number of punctuations in the text, the average word lengths
+and the percentage of fully capitalised words which can be useful
+information for feature engineering. Additionally, our package can also
+manipulate text data by removing the stopwords for the ease of future
+processing steps.
+
+Our package and functions are inspired from a lab in the course, DSCI
+573 (Feature and model selection), of UBC MDS program, and are tailored
+based on our own experience and interest.
+
+## **Function Details**
+
+-   `count_punc`: This function will count and return the number of
+    punctuations within a given text.
+-   `avg_word_len`: This function will calculate and return the average
+    length of words within a given text.
+-   `perc_cap_words`: This function will calculate the percentage of
+    fully capitalised words in the text.
+-   `remove_stop_words`: This function will find and remove the stop
+    words in a text and will return the list of clean words.
+
+## **R Ecosystem**
+
 <!-- badges: start -->
 <!-- badges: end -->
 
