@@ -35,10 +35,30 @@ based on our own experience and interest.
 
 ## **R Ecosystem**
 
+In the field of text feature engineering, we are cognisant that there
+are well established packages in the R ecosystem - specifically
+[`textfeatures`](https://github.com/mkearney/textfeatures),
+[`qdap`](http://trinker.github.io/qdap/) and
+[`stopwords`](https://github.com/quanteda/stopwords). For punctuations,
+we are aware that textfeatures package can be used to find the number of
+punctuations in a string. To calculate average word length, both
+textfeatures and qdap are able to find the count of words but they do
+not provide the average length. To count the number of fully capitalised
+words in a text, textfeatures provides a means to find the number of
+capitalized characters, but not to count them explicitly. In the case of
+stopwords, the package stopwords provides the list of stopwords in
+different languages. However, it does not have a function to remove
+stopwords from the text.
+
+Based on our experience in our previous module, all the functions that
+we seek to use require several lines of code. For example, to calculate
+the average word length, we need to extract the punctuation, count total
+number of characters, then averaging out over the number of words
+present. As such, we seek to simplify these tasks into functions that
+users, including ourselves, can employ in one line of code.
+
 <!-- badges: start -->
 <!-- badges: end -->
-
-The goal of textfeatureinfor is to …
 
 ## Installation
 
@@ -58,30 +78,3 @@ This is a basic example which shows you how to solve a common problem:
 library(textfeatureinfor)
 ## basic example code
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
