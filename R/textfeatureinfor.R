@@ -2,7 +2,7 @@
 #' Count punctuations
 #'
 #' @param string A character vector with, at most, one element.
-#' @@inheritParams katherinemansfieldr::extract_punct
+#' @inheritParams katherinemansfieldr::extract_punct
 #'
 #' @return A vector containing the number of punctuations.
 #' @export
