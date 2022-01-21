@@ -32,7 +32,19 @@ count_punc <- function(text) {
 
 
 # perc_cap_words
+#' Percentage of fully capitalised words in a string
+#'
+#' @param text A character vector with length one containing the piece of text to analyze.
+#'
+#' @return A vector containing the number of fully capitalised words
+#'
+#' @examples
+#' text <- "This is REALLY Awesome!"
+#' perc_cap_words(text)
+#' 0.25
+perc_cap_words <- function(text) {
 
+}
 
 
 
