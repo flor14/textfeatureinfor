@@ -94,12 +94,3 @@ remove_stop_words <- function(text) {
     }
     clean_words
 }
-
-
-
-
-
-
-
-
-
