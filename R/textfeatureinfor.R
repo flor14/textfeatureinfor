@@ -80,15 +80,15 @@ remove_stop_words <- function(text) {
     if(!is.character(text)){
         stop("Cannot remove stop words from a non-character type!")
     }
-    if(is.empty(text)){
+    if(rapportools::is.empty(text)){
         stop("Cannot remove stop words from an empty string!")
     }
-    stop_words <- stopwords("en", source = "stopwords-iso")
+    stop_words <- stopwords::stopwords("en", source = "stopwords-iso")
     text <- tolower(text)
     words <- strsplit(text, " ")[[1]]
     clean_words <- vector()
     for(word in words) {
-        if(sum(str_detect(stop_words, word)) == 0) {
+        if(sum(stringr::str_detect(stop_words, word)) == 0) {
             clean_words <- append(clean_words, word)
         }
     }
