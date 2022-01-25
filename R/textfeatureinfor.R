@@ -27,7 +27,7 @@ count_punc <- function(text) {
 #' Calculate average word length in a string
 #'
 #' @param text A character vector for the average word length extraction.
-#'
+#' @inheritParams katherinemansfieldr::extract_punct
 #' @return A numeric vector representing the average word length in the text.
 #' @export
 #'
@@ -36,7 +36,9 @@ count_punc <- function(text) {
 #' avg_word_len(x)
 #' 4
 avg_word_len <- function(text) {
-
+  if (!is.character(text)) {
+    stop("text should be of type 'String'")
+  }
 }
 
 
