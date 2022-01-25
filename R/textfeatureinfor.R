@@ -24,9 +24,9 @@ count_punc <- function(text) {
 # avg_word_len
 #' Calculate average word length in a string
 #'
-#' @param text A character vector for average word length extraction
+#' @param text A character vector for the average word length extraction.
 #'
-#' @return A numeric vector representing the average word length in the text
+#' @return A numeric vector representing the average word length in the text.
 #' @export
 #'
 #' @examples
@@ -94,3 +94,4 @@ remove_stop_words <- function(text) {
     }
     clean_words
 }
+
