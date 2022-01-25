@@ -1,3 +1,4 @@
+library(stringr)
 # count_punc
 #' Count punctuations
 #'
@@ -54,9 +55,18 @@ avg_word_len <- function(text) {
 #' @examples
 #' text <- "This is REALLY Awesome!"
 #' perc_cap_words(text)
-#' 0.25
+#' 25
 perc_cap_words <- function(text) {
-
+    if(!is.character(text)){
+        stop("'text' should be of type 'String'")
+    }
+    if(rapportools::is.empty(text)){
+        stop("Please provide a non-empty text!")
+    }
+    no_cap_words <- str_count(text, "\\b[A-Z]{2,}\\b")
+    words_in_string <- lengths(strsplit(text, "\\W+"))
+    
+    return (no_cap_words/words_in_string * 100)
 }
 
 
