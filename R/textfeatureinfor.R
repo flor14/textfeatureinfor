@@ -24,7 +24,7 @@ count_punc <- function(text) {
 # avg_word_len
 #' Calculate average word length in a string
 #'
-#' @param text A character vector for average word length extraction 
+#' @param text A character vector for average word length extraction
 #'
 #' @return A numeric vector representing the average word length in the text
 #' @export
@@ -34,7 +34,7 @@ count_punc <- function(text) {
 #' avg_word_len(x)
 #' 4
 avg_word_len <- function(text) {
-  
+
 }
 
 
@@ -77,13 +77,20 @@ perc_cap_words <- function(text) {
 #' remove_stop_words(text)
 #' "tomorrow" "day!"
 remove_stop_words <- function(text) {
+    if(!is.character(text)){
+        stop("Cannot remove stop words from a non-character type!")
+    }
+    if(rapportools::is.empty(text)){
+        stop("Cannot remove stop words from an empty string!")
+    }
+    stop_words <- stopwords::stopwords("en", source = "stopwords-iso")
+    text <- tolower(text)
+    words <- strsplit(text, " ")[[1]]
+    clean_words <- vector()
+    for(word in words) {
+        if(sum(stringr::str_detect(stop_words, word)) == 0) {
+            clean_words <- append(clean_words, word)
+        }
+    }
+    clean_words
 }
-
-
-
-
-
-
-
-
-
