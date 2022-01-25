@@ -1,4 +1,5 @@
 library(stringr)
+library(rapportools)
 # count_punc
 #' Count punctuations
 #'
