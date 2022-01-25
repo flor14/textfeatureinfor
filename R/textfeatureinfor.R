@@ -39,6 +39,9 @@ avg_word_len <- function(text) {
   if (!is.character(text)) {
     stop("text should be of type 'String'")
   }
+  if (length(text) > 1) {
+    stop("text should be a character vector of length 1")
+  }
 }
 
 
