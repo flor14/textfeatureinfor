@@ -36,12 +36,24 @@ count_punc <- function(text) {
 #' avg_word_len(x)
 #' 4
 avg_word_len <- function(text) {
+  
   if (!is.character(text)) {
     stop("text should be of type 'String'")
   }
+  
+  # prevents users from inputting character vectors with more than one element
   if (length(text) > 1) {
     stop("text should be a character vector of length 1")
   }
+  
+  # Get all punctuation from text
+  punc <- extract_punct(text)
+  
+  for (char in punc) {
+    text <- str_replace(text, char, " ")
+  }
+  
+  
 }
 
 
