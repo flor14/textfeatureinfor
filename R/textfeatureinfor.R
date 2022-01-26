@@ -26,9 +26,9 @@ count_punc <- function(text) {
 # avg_word_len
 #' Calculate average word length in a string
 #'
-#' @param text A character vector for average word length extraction
-#'
-#' @return A numeric vector representing the average word length in the text
+#' @param text A character vector for the average word length extraction.
+#' @inheritParams katherinemansfieldr::extract_punct
+#' @return A numeric vector representing the average word length in the text.
 #' @export
 #'
 #' @examples
@@ -36,7 +36,46 @@ count_punc <- function(text) {
 #' avg_word_len(x)
 #' 4
 avg_word_len <- function(text) {
-
+  
+  if (!is.character(text)) {
+    stop("text should be of type 'String'")
+  }
+  
+  # prevents users from inputting character vectors with more than one element
+  if (length(text) > 1) {
+    stop("text should be a character vector of length 1")
+  }
+  
+  # Get all punctuation from text
+  punc <- extract_punct(text)
+  
+  # removes all punctuation from string
+  for (char in punc) {
+    text <- str_replace_all(text, fixed(char), " ")
+  }
+  
+  # to ensure that the text is not an empty string or a string with only spaces
+  if (nchar(text) == 0 | grepl("^\\s*$", text)) {
+    return(0)
+  }
+  
+  else {
+    # separates words by spaces and places words into a list
+    word_list <- as.list(unlist(strsplit(text, "\\s{1,}")))
+    
+    # calculates the average length of the words in the string
+    letter_count <- 0
+    for (word in word_list) {
+      letter_count <- letter_count + nchar(word)
+    }
+    
+    # removes empty strings from the word_list before computation
+    word_list <- word_list[word_list != ""]
+    
+    average_length <- letter_count / length(word_list)
+  
+    return (average_length)
+  }
 }
 
 
@@ -111,3 +150,4 @@ remove_stop_words <- function(text) {
     }
     clean_words
 }
+
