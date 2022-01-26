@@ -14,3 +14,7 @@ test_that("remove_stop_words() errors if the type is empty", {
     expect_error(remove_stop_words(""))
     expect_error(remove_stop_words(" "))
 })
+
+test_that("remove_stop_words() errors if the length of text is greater than 1", {
+    expect_error(remove_stop_words(c("hello", "world")))
+})

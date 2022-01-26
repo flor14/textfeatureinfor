@@ -16,3 +16,7 @@ test_that("perc_cap_words() throws an error is the string is empty", {
     expect_error(perc_cap_words(""))
     expect_error(perc_cap_words(" "))
 })
+
+test_that("perc_cap_words() throws an error if the length of text is greater than 1", {
+    expect_error(perc_cap_words(c("hello", "world")))
+})

@@ -97,6 +97,9 @@ avg_word_len <- function(text) {
 #' perc_cap_words(text)
 #' 25
 perc_cap_words <- function(text) {
+    if(length(text) > 1){
+        stop("The text should be of length 1!")
+    }
     if(!is.character(text)){
         stop("'text' should be of type 'String'")
     }
@@ -105,7 +108,7 @@ perc_cap_words <- function(text) {
     }
     no_cap_words <- str_count(text, "\\b[A-Z]{2,}\\b")
     words_in_string <- lengths(strsplit(text, "\\W+"))
-    
+
     return (no_cap_words/words_in_string * 100)
 }
 
@@ -127,6 +130,9 @@ perc_cap_words <- function(text) {
 #' remove_stop_words(text)
 #' "tomorrow" "day!"
 remove_stop_words <- function(text) {
+    if(length(text) > 1){
+        stop("The text should be of length 1!")
+    }
     if(!is.character(text)){
         stop("Cannot remove stop words from a non-character type!")
     }
