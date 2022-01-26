@@ -54,6 +54,7 @@ avg_word_len <- function(text) {
     text <- str_replace_all(text, fixed(char), " ")
   }
   
+  # to ensure that the text is not an empty string
   if (nchar(text) == 0){
     return(0)
   }
@@ -67,6 +68,10 @@ avg_word_len <- function(text) {
     for (word in word_list) {
       letter_count <- letter_count + nchar(word)
     }
+    
+    # removes empty strings from the word_list before computation
+    word_list <- word_list[word_list != ""]
+    
     average_length <- letter_count / length(word_list)
   
     return (average_length)
