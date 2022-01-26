@@ -51,7 +51,7 @@ avg_word_len <- function(text) {
   
   # removes all punctuation from string
   for (char in punc) {
-    text <- str_replace(text, char, "")
+    text <- str_replace(text, char, " ")
   }
   
   if (nchar(text) == 0){
@@ -60,7 +60,7 @@ avg_word_len <- function(text) {
   
   else {
     # separates words by spaces and places words into a list
-    word_list <- as.list(unlist(strsplit(text, "[[:space:]]")))
+    word_list <- as.list(unlist(strsplit(text, "\\s{2,}")))
     
     # calculates the average length of the words in the string
     letter_count <- 0
