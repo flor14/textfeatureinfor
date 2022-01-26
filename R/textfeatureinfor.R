@@ -54,8 +54,8 @@ avg_word_len <- function(text) {
     text <- str_replace_all(text, fixed(char), " ")
   }
   
-  # to ensure that the text is not an empty string
-  if (nchar(text) == 0){
+  # to ensure that the text is not an empty string or a string with only spaces
+  if (nchar(text) == 0 | grepl("^\\s*$", text)) {
     return(0)
   }
   
