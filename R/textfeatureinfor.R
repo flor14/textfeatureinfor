@@ -54,15 +54,15 @@ avg_word_len <- function(text) {
     text <- str_replace(text, char, " ")
   }
   # separates words by spaces and places words into a list
-  word_list <- as.list(unlist(strplit(x, '[[:space:]]')))
+  word_list <- as.list(unlist(strsplit(text, "[[:space:]]")))
   
   # calculates the average length of the words in the string
   letter_count <- 0
   for (word in word_list) {
-    letter_count <- letter_count + length(word)
+    letter_count <- letter_count + nchar(word)
   }
   average_length <- letter_count / length(word_list)
-  
+
   return (average_length)
 }
 
