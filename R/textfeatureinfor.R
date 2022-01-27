@@ -4,7 +4,7 @@ library(rapportools)
 # count_punc
 #' Count punctuations
 #'
-#' @param string A character vector with, at most, one element.
+#' @param text A character vector with, at most, one element.
 #' @inheritParams stringi::stri_detect_fixed
 #'
 #' @return A vector containing the number of punctuations.
