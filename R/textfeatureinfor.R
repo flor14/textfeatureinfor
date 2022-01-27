@@ -26,7 +26,7 @@ count_punc <- function(text) {
                       '/',':',';','<','=','>','?','@','[',']','^','_','`',
                       '{','|','}','~')
     count_of_punc <- 0
-    for (char in stringr::strsplit(text, "")[[1]]) {
+    for (char in strsplit(text, "")[[1]]) {
         if (any(stringi::stri_detect_fixed(char, punctuations) == TRUE))
             count_of_punc = count_of_punc + 1
     }
@@ -64,11 +64,11 @@ avg_word_len <- function(text) {
   }
 
   # Get all punctuation from text
-  punc <- extract_punct(text)
+  punc <- katherinemansfieldr::extract_punct(text)
 
   # removes all punctuation from string
   for (char in punc) {
-    text <- str_replace_all(text, fixed(char), " ")
+    text <- stringr::str_replace_all(text, stringr::fixed(char), " ")
   }
 
   # to ensure that the text is not an empty string or a string with only spaces
@@ -123,7 +123,7 @@ perc_cap_words <- function(text) {
     if(rapportools::is.empty(text)){
         stop("Please provide a non-empty text!")
     }
-    no_cap_words <- str_count(text, "\\b[A-Z]{2,}\\b")
+    no_cap_words <- stringr::str_count(text, "\\b[A-Z]{2,}\\b")
     words_in_string <- lengths(strsplit(text, "\\W+"))
 
     return (no_cap_words/words_in_string * 100)
@@ -135,7 +135,7 @@ perc_cap_words <- function(text) {
 
 
 
-
+# remove_stop_words
 #' Remove stop words
 #'
 #' @param text A character vector with length one containing the piece of text to analyze.
@@ -167,4 +167,3 @@ remove_stop_words <- function(text) {
     }
     clean_words
 }
-

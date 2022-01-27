@@ -1,6 +1,3 @@
-library(stringr)
-library(rapportools)
-
 test_that("perc_cap_words() counts percentage of fully capitalised words in string", {
     expect_equal(perc_cap_words("THIS IS SPAM!"), 100)
     expect_equal(perc_cap_words("1234 !!! oked"), 0)
