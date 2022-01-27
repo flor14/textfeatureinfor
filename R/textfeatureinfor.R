@@ -44,7 +44,6 @@ count_punc <- function(text) {
 #' Calculate average word length in a string
 #'
 #' @param text A character vector for the average word length extraction.
-#' @inheritParams katherinemansfieldr::extract_punct
 #' @return A numeric vector representing the average word length in the text.
 #' @export
 #'
@@ -64,7 +63,9 @@ avg_word_len <- function(text) {
   }
 
   # Get all punctuation from text
-  punc <- katherinemansfieldr::extract_punct(text)
+  punc <- c(',','!','"','#','$','%','&','’','(',')','*','+','-','.',
+            '/',':',';','<','=','>','?','@','[',']','^','_','`',
+            '{','|','}','~')
 
   # removes all punctuation from string
   for (char in punc) {
