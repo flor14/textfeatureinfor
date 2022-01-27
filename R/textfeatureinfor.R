@@ -1,6 +1,3 @@
-library(stringr)
-library(stringi)
-library(rapportools)
 # count_punc
 #' Count punctuations
 #'
@@ -148,7 +145,7 @@ perc_cap_words <- function(text) {
 #' @examples
 #' text <- "Tomorrow is a big day!"
 #' remove_stop_words(text)
-#' "tomorrow" "day!"
+#' "tomorrow"
 remove_stop_words <- function(text) {
     if(length(text) > 1){
         stop("The text should be of length 1!")
@@ -159,9 +156,26 @@ remove_stop_words <- function(text) {
     if(rapportools::is.empty(text)){
         stop("Cannot remove stop words from an empty string!")
     }
+    # Get all the stopwords
     stop_words <- stopwords::stopwords("en", source = "stopwords-iso")
+
+    # Make the text lowercase
     text <- tolower(text)
+
+    # All punctuation
+    punc <- c(',','!','"','#','$','%','&','’','(',')','*','+','-','.',
+              '/',':',';','<','=','>','?','@','[',']','^','_','`',
+              '{','|','}','~')
+
+    # Remove all punctuation from the text
+    for (char in punc) {
+        text <- stringr::str_replace_all(text, stringr::fixed(char), " ")
+    }
+
+    # Split the text into words
     words <- strsplit(text, " ")[[1]]
+
+    # Store the words that are not stopwords
     clean_words <- vector()
     for(word in words) {
         if(sum(stringr::str_detect(stop_words, word)) == 0) {

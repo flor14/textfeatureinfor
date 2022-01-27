@@ -2,3 +2,5 @@
 
 export(avg_word_len)
 export(count_punc)
+export(perc_cap_words)
+export(remove_stop_words)
