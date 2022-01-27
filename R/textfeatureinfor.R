@@ -108,6 +108,7 @@ avg_word_len <- function(text) {
 #' @param text A character vector with length one containing the piece of text to analyze.
 #'
 #' @return A vector containing the number of fully capitalised words
+#' @export
 #'
 #' @examples
 #' text <- "This is REALLY Awesome!"
@@ -141,6 +142,7 @@ perc_cap_words <- function(text) {
 #' @param text A character vector with length one containing the piece of text to analyze.
 #'
 #' @return A character vector containing words in the text that are not stop words.
+#' @export
 #'
 #' @examples
 #' text <- "Tomorrow is a big day!"
