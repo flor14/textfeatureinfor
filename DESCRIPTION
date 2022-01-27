@@ -5,7 +5,7 @@ Authors@R:
     c(person(given = "Lynn",
            family = "Wu",
            role = c("aut", "cre"),
-           email = "ynnwbl@gmail.com"),
+           email = "lynnwbl@gmail.com"),
     person(given = "Kiran",
            family = "Phaterpekar",
            role = "aut",
@@ -27,7 +27,8 @@ Imports:
     katherinemansfieldr,
     rapportools,
     stopwords,
-    stringr
+    stringr,
+    stringi
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
