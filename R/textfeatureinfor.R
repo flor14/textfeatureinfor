@@ -168,5 +168,8 @@ remove_stop_words <- function(text) {
             clean_words <- append(clean_words, word)
         }
     }
+    if(length(clean_words) == 0){
+        return(character(0))
+    }
     clean_words
 }
