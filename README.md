@@ -76,5 +76,12 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(textfeatureinfor)
-## basic example code
+count_punc("Hello, World!")
+#> [1] 2
+avg_word_len("Here are some words")
+#> [1] 4
+perc_cap_words("This is REALLY Awesome!")
+#> [1] 25
+remove_stop_words("Tomorrow is a big day!")
+#> [1] "tomorrow"
 ```
