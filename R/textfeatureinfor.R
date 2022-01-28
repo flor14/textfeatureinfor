@@ -32,11 +32,6 @@ count_punc <- function(text) {
 
 
 
-
-
-
-
-
 # avg_word_len
 #' Calculate average word length in a string
 #'
@@ -95,11 +90,6 @@ avg_word_len <- function(text) {
 
 
 
-
-
-
-
-
 # perc_cap_words
 #' Percentage of fully capitalised words in a string
 #'
@@ -127,10 +117,6 @@ perc_cap_words <- function(text) {
 
     return (no_cap_words/words_in_string * 100)
 }
-
-
-
-
 
 
 
