@@ -52,5 +52,8 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(textfeatureinfor)
-## basic example code
+count_punc("Hello, World!")
+avg_word_len("Here are some words")
+perc_cap_words("This is REALLY Awesome!")
+remove_stop_words("Tomorrow is a big day!")
 ```
