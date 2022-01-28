@@ -13,10 +13,10 @@
 #' 2
 count_punc <- function(text) {
     if (!is.character(text)) {
-        stop("text should be of type 'String'")
+        stop("Text should be of type 'String'")
     }
     if (length(text) > 1) {
-        stop("text should be a character vector of length 1")
+        stop("Text should be a character vector of length 1")
     }
 
     punctuations <- c(',','!','"','#','$','%','&','’','(',')','*','+','-','.',
@@ -46,12 +46,12 @@ count_punc <- function(text) {
 avg_word_len <- function(text) {
 
   if (!is.character(text)) {
-    stop("text should be of type 'String'")
+    stop("Text should be of type 'String'")
   }
 
   # prevents users from inputting character vectors with more than one element
   if (length(text) > 1) {
-    stop("text should be a character vector of length 1")
+    stop("Text should be a character vector of length 1")
   }
 
   # Get all punctuation from text
@@ -104,7 +104,7 @@ avg_word_len <- function(text) {
 #' 25
 perc_cap_words <- function(text) {
     if(length(text) > 1){
-        stop("The text should be of length 1!")
+        stop("Text should be a character vector of length 1")
     }
     if(!is.character(text)){
         stop("'text' should be of type 'String'")
@@ -134,13 +134,13 @@ perc_cap_words <- function(text) {
 #' "tomorrow"
 remove_stop_words <- function(text) {
     if(length(text) > 1){
-        stop("The text should be of length 1!")
+        stop("Text should be a character vector of length 1")
     }
     if(!is.character(text)){
-        stop("Cannot remove stop words from a non-character type!")
+        stop("'text' should be of type 'String'")
     }
     if(rapportools::is.empty(text)){
-        stop("Cannot remove stop words from an empty string!")
+        stop("Please provide a non-empty text!")
     }
     # Get all the stopwords
     stop_words <- stopwords::stopwords("en", source = "stopwords-iso")
