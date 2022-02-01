@@ -3,6 +3,9 @@
 
 # textfeatureinfor
 
+[Link to the package
+website](https://ubc-mds.github.io/textfeatureinfor/)
+
 ## **Description**
 
 In Natural Language Processing, it is common for users to try and
