@@ -1,0 +1,32 @@
+---
+title: "Introduction to avg_word_len"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{avg_word_len}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+During Natural Language Processing (NLP), data scientists may want:
+- extract additional characteristics from text data
+- engineer their own features using these additional characteristics
+- train their models with their engineered features for better model results
+
+The `avg_word_len` function from the `textfeatureinfo` package is one of four functions that aids in this text data extraction process. Specifically, `avg_word_len` makes it easy to extract the average length of words inside of a piece of text. 
+
+This document provides detailed instructions on how to apply the `avg_word_len` function on text data for quick access to a new feature that can be added into various machine learning models.
+
+You can start by loading the `textfeatureinfo` package:
+```{r setup}
+library(textfeatureinfor)
+```
+
+
+
