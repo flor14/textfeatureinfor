@@ -1,0 +1,29 @@
+---
+title: "remove_stop_words"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{remove_stop_words}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The library `textfeatureinfor` has for functions, one of which is `remove_stop_words`. Here we will explore the usage of this function.
+
+```{r setup}
+library(textfeatureinfor)
+```
+
+We can pass a piece of text to this function. The function will remove all the stopwords and return a clean vector of all non-stopwords in the text.
+
+```{r}
+remove_stop_words("Tomorrow is a big day!")
+```
+
+This function is helpful in the NLP (Natural Language Processing) tasks. Before applying any machine learning procedures, we can preprocess the data by removing all the stopwords. 
