@@ -14,6 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Background
+___
+
 During Natural Language Processing (NLP), data scientists may want:
 - extract additional characteristics from text data
 - engineer their own features using these additional characteristics
@@ -29,6 +32,7 @@ library(textfeatureinfor)
 ```
 
 ## Quick example for one piece of text
+___
 
 To understand the basics of the `avg_word_len` function, we can take a look at it's interaction with a simple text object. 
 
@@ -39,11 +43,32 @@ round(avg_word_len(text), 2) # the output of avg_word_len is rounded to 2 decima
 ```
 
 ## Example with a dataframe
+___
 
-Now that we understand how to use this function, let's apply `avg_word_len` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire dataframes in order to be useful for machine learning models.
+Now that we understand how to use this function, let's apply `avg_word_len` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.
+
+Let's first create a toy data-set with 5 examples:
+```{r}
+toy_data <- data.frame(messages = c(
+  "Hello World",
+  "Star wars is my favourite movie",
+  "Never have I ever",
+  "What a wonderful world",
+  "You should watch Spiderman: no way home"
+  ))
+toy_data
+```
+
+Now, we will leverage the `avg_word_len` function to extract the average word lengths from the toy data and add it as a new column in the toy data frame
 
 ```{r}
+# applies avg_word_len function to each row in the data frame
+toy_data["average_word_lengths"] <- apply(toy_data["messages"], 
+                                          1,
+                                          avg_word_len) 
 
-
+toy_data["average_word_lengths"] <- round(toy_data["average_word_lengths"], 2)
+toy_data
 ```
+
 
