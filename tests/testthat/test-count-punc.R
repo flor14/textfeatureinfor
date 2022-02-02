@@ -1,6 +1,6 @@
 test_that("count_punc() finds the number of punctuations in a string", {
     expect_equal(count_punc("Hello, World!"), 2)
-    expect_equal(count_punc(",!\"#$%&’()*+-./:;<=>?@[]^_`{|}~"), 31)
+    expect_equal(count_punc(",!\"#$%&'()*+-./:;<=>?@[]^_`{|}~"), 31)
     expect_equal(count_punc(""), 0)
     expect_equal(count_punc(" "), 0)
 })
