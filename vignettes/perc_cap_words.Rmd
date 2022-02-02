@@ -16,6 +16,13 @@ knitr::opts_chunk$set(
 
 ## Background
 
+
+During Natural Language Processing (NLP), data scientists may want:
+
+- extract additional characteristics from text data 
+- engineer their own features using these additional characteristics 
+- train their models with their engineered features for better model results
+
 The library `textfeatureinfor` has four functions, one of which is `perc_cap_words`. Here we will explore the usage of this function.
 
 Let us first load the `textfeatureinfo` package:
@@ -39,6 +46,7 @@ perc_cap_words(text)
 From this basic example, we can see that the percentage of fully capitalised words in this piece of text is `25`, indicating 25%.
 
 ## Example with a dataframe
+
 
 Now that we understand how to use this function, let's apply `perc_cap_words` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.
 
@@ -68,5 +76,6 @@ toy_data
 Now we have access to the percentage of capitalised words for each example message in the toy data frame.
 
 ## Summary
+
 
 This function is useful in sentiment analysis in Natural Language Processing (NLP). The use of fully capitalised words is associated with increased levels of excitement, anticipation, or stress.
