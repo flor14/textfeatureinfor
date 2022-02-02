@@ -38,4 +38,12 @@ text <- "Star wars is my favourite movie"
 round(avg_word_len(text), 2) # the output of avg_word_len is rounded to 2 decimals
 ```
 
+## Example with a dataframe
+
+Now that we understand how to use this function, let's apply `avg_word_len` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire dataframes in order to be useful for machine learning models.
+
+```{r}
+
+
+```
 
