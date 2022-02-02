@@ -78,5 +78,5 @@ Now we have access to the average length of the words for each example message i
 ## Summary
 
 
-The `avg_word_len` function is simple, but has broach implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.
+The `avg_word_len` function is simple, but has broad implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.
 
