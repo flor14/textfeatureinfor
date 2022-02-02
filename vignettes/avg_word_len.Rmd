@@ -71,4 +71,10 @@ toy_data["average_word_lengths"] <- round(toy_data["average_word_lengths"], 2)
 toy_data
 ```
 
+Now we have access to the average length of the words for each example message in the toy data frame.
+
+## Summary
+___
+
+The `avg_word_len` function is simple, but has broach implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.
 
