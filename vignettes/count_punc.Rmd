@@ -1,0 +1,84 @@
+---
+title: "Introduction to count_punc"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{count_punc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Background
+
+During Natural Language Processing (NLP), data scientists may want:
+
+- extract additional characteristics from text data 
+- engineer their own features using these additional characteristics 
+- train their models with their engineered features for better model results
+
+The `count_punc` function from the `textfeatureinfo` package is one of four functions that aids in this text data extraction process. Specifically, `count_punc` makes it easy to extract the number of punctuation inside a piece of text.
+
+This document provides detailed instructions on how to apply the `count_punc` function on text data for quick access to a new feature that can be added into various machine learning models.
+
+You can start by loading the `textfeatureinfo` package:
+
+```{r setup}
+library(textfeatureinfor)
+```
+
+## Note: punctuation characters
+
+Please note that in this version of the `textfeatureinfor`, the following characters are considered punctuation characters.
+
+#### `` , ! " # $ % & ' ( ) * + - . / : ; < = > ? @ [ ] ^ _ ` { | } ~ ``
+
+## Quick example with one piece of text
+
+To understand the basics of the `count_punc` function, we can take a look at its interaction with a simple text object.
+
+```{r}
+text <- "Hey! I am giving you 1,000,000 dollars!!! #GIVEAWAY"
+count_punc(text)
+```
+
+From this basic example, we can see that the number of punctuation in this piece of text is `7`.
+
+## Example with a dataframe
+
+Now that we understand how to use this function, let's apply `count_punc` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.
+
+Let's first create a toy data-set with 5 examples:
+
+```{r}
+toy_data <- data.frame(messages = c(
+  "Hello World!!",
+  "Hey! I am giving you 1,000,000 dollars!!! #GIVEAWAY",
+  "When are you free? How about Saturday...",
+  "FREE CASH$$$ call #888-888-8888 @now ^^",
+  "Well that was a bad movie"
+  ))
+toy_data
+```
+
+Now, we will leverage the `count_punc` function to extract the number of punctuation from the toy data and add it as a new column in the toy data frame
+
+```{r}
+# applies count_punc function to each row in the data frame
+toy_data["count_punctuation"] <- apply(toy_data["messages"], 
+                                          1,
+                                          count_punc) 
+toy_data["count_punctuation"] <- toy_data["count_punctuation"]
+toy_data
+```
+
+Now we have access to the number of punctuation for each example message in the toy data frame.
+
+## Summary
+
+The `count_punc` function is simple, but has broad implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.
