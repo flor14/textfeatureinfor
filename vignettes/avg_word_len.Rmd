@@ -28,5 +28,14 @@ You can start by loading the `textfeatureinfo` package:
 library(textfeatureinfor)
 ```
 
+## Quick example for one piece of text
+
+To understand the basics of the `avg_word_len` function, we can take a look at it's interaction with a simple text object. 
+
+```{r}
+text <- "Star wars is my favourite movie"
+
+round(avg_word_len(text), 2) # the output of avg_word_len is rounded to 2 decimals
+```
 
 
