@@ -40,7 +40,7 @@ Please note that in this version of the `textfeatureinfor`, the following charac
 
 ## Quick example with one piece of text
 
-To understand the basics of the `count_punc` function, we can take a look at it's interaction with a simple text object.
+To understand the basics of the `count_punc` function, we can take a look at its interaction with a simple text object.
 
 ```{r}
 text <- "Hey! I am giving you 1,000,000 dollars!!! #GIVEAWAY"
