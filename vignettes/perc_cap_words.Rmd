@@ -2,7 +2,7 @@
 title: "perc_cap_words"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{package_name-vignette}
+  %\VignetteIndexEntry{perc_cap_words}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

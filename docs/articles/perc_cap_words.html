@@ -41,6 +41,8 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/avg_word_len.html">Introduction to avg_word_len</a>
+    <a class="dropdown-item" href="../articles/count_punc.html">Introduction to count_punc</a>
     <a class="dropdown-item" href="../articles/perc_cap_words.html">perc_cap_words</a>
     <a class="dropdown-item" href="../articles/remove_stop_words.html">remove_stop_words</a>
   </div>
@@ -74,6 +76,15 @@
 <div class="section level2">
 <h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
 </h2>
+<p>During Natural Language Processing (NLP), data scientists may
+want:</p>
+<ul>
+<li>extract additional characteristics from text data</li>
+<li>engineer their own features using these additional
+characteristics</li>
+<li>train their models with their engineered features for better model
+results</li>
+</ul>
 <p>The library <code>textfeatureinfor</code> has four functions, one of
 which is <code>perc_cap_words</code>. Here we will explore the usage of
 this function.</p>
