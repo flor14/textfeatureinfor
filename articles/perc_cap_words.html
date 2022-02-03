@@ -73,80 +73,10 @@
     
     
 <div class="section level2">
-<h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
+<h2 id="other-great-function">OTHER GREAT FUNCTION<a class="anchor" aria-label="anchor" href="#other-great-function"></a>
 </h2>
-<p>During Natural Language Processing (NLP), data scientists may want:</p>
-<ul>
-<li>extract additional characteristics from text data</li>
-<li>engineer their own features using these additional characteristics</li>
-<li>train their models with their engineered features for better model results</li>
-</ul>
-<p>The library <code>textfeatureinfor</code> has four functions, one of which is <code>perc_cap_words</code>. Here we will explore the usage of this function.</p>
-<p>Let us first load the <code>textfeatureinfo</code> package:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">textfeatureinfor</span><span class="op">)</span></code></pre></div>
-<p>We can pass a piece of text to this function. This function will calculate the percentage of fully capitalised words in a text. To be more specific, it will first isolate and count the total number of the words in the string. Second, it will count the total number of fully capitalised words. Finally, the percentage of fully capitalised words to total length of string is calculated.</p>
 </div>
-<div class="section level2">
-<h2 id="quick-example-for-one-piece-of-text">Quick example for one piece of text<a class="anchor" aria-label="anchor" href="#quick-example-for-one-piece-of-text"></a>
-</h2>
-<p>To understand the basics of the <code>perc_cap_words</code> function, we can take a look at its interaction with a simple text object.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"TODAY is a GREAT day to be alive!"</span>
-
-<span class="fu"><a href="../reference/perc_cap_words.html">perc_cap_words</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span>
-<span class="co">#&gt; [1] 25</span></code></pre></div>
-<p>From this basic example, we can see that the percentage of fully capitalised words in this piece of text is <code>25</code>, indicating 25%.</p>
-</div>
-<div class="section level2">
-<h2 id="example-with-a-dataframe">Example with a dataframe<a class="anchor" aria-label="anchor" href="#example-with-a-dataframe"></a>
-</h2>
-<p>Now that we understand how to use this function, let’s apply <code>perc_cap_words</code> to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.</p>
-<p>Let’s first create a toy data-set with 5 examples:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>lines <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-  <span class="st">"TODAY is a GREAT day to be alive!"</span>,
-  <span class="st">"I can smell the flowers and see flocks of birds overhead."</span>,
-  <span class="st">"The weather forecast shows that its going to SNOW tomorrow"</span>,
-  <span class="st">"So I will make the BEST USE of TODAY"</span>,
-  <span class="st">"to take a LONG LONG run around the lake near me"</span>
-  <span class="op">)</span><span class="op">)</span>
-<span class="va">toy_data</span>
-<span class="co">#&gt;                                                        lines</span>
-<span class="co">#&gt; 1                          TODAY is a GREAT day to be alive!</span>
-<span class="co">#&gt; 2  I can smell the flowers and see flocks of birds overhead.</span>
-<span class="co">#&gt; 3 The weather forecast shows that its going to SNOW tomorrow</span>
-<span class="co">#&gt; 4                       So I will make the BEST USE of TODAY</span>
-<span class="co">#&gt; 5            to take a LONG LONG run around the lake near me</span></code></pre></div>
-<p>Now, we will leverage the <code>perc_cap_words</code> function to extract the percentage of capitalised words from the toy data and add it as a new column in the toy data frame</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># applies perc_cap_words function to each row in the data frame</span>
-<span class="va">toy_data</span><span class="op">[</span><span class="st">"percentage_of_cap_words"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">toy_data</span><span class="op">[</span><span class="st">"lines"</span><span class="op">]</span>, 
-                                          <span class="fl">1</span>,
-                                          <span class="va">avg_word_len</span><span class="op">)</span> 
-<span class="va">toy_data</span><span class="op">[</span><span class="st">"percentage_of_cap_words"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">toy_data</span><span class="op">[</span><span class="st">"percentage_of_cap_words"</span><span class="op">]</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="va">toy_data</span>
-<span class="co">#&gt;                                                        lines</span>
-<span class="co">#&gt; 1                          TODAY is a GREAT day to be alive!</span>
-<span class="co">#&gt; 2  I can smell the flowers and see flocks of birds overhead.</span>
-<span class="co">#&gt; 3 The weather forecast shows that its going to SNOW tomorrow</span>
-<span class="co">#&gt; 4                       So I will make the BEST USE of TODAY</span>
-<span class="co">#&gt; 5            to take a LONG LONG run around the lake near me</span>
-<span class="co">#&gt;   percentage_of_cap_words</span>
-<span class="co">#&gt; 1                    3.12</span>
-<span class="co">#&gt; 2                    4.18</span>
-<span class="co">#&gt; 3                    4.90</span>
-<span class="co">#&gt; 4                    3.11</span>
-<span class="co">#&gt; 5                    3.36</span></code></pre></div>
-<p>Now we have access to the percentage of capitalised words for each example message in the toy data frame.</p>
-</div>
-<div class="section level2">
-<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
-</h2>
-<p>This function is useful in sentiment analysis in Natural Language Processing (NLP). The use of fully capitalised words is associated with increased levels of excitement, anticipation, or stress.</p>
-</div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
-    </nav></aside>
+  </main>
 </div>
 
 
