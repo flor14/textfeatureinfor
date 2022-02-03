@@ -63,6 +63,7 @@
 <div class="page-header"><h1 id="textfeatureinfor">textfeatureinfor<a class="anchor" aria-label="anchor" href="#textfeatureinfor"></a>
 </h1></div>
 <p><a href="https://ubc-mds.github.io/textfeatureinfor/" class="external-link">Link to the package website</a></p>
+<p><a href="https://github.com/UBC-MDS/textfeatureinfor/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/UBC-MDS/textfeatureinfor/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></p>
 <div class="section level2">
 <h2 id="description">
 <strong>Description</strong><a class="anchor" aria-label="anchor" href="#description"></a>
@@ -92,7 +93,7 @@
 <p>In the field of text feature engineering, we are cognisant that there are well established packages in the R ecosystem - specifically <a href="https://github.com/mkearney/textfeatures" class="external-link"><code>textfeatures</code></a>, <a href="http://trinker.github.io/qdap/" class="external-link"><code>qdap</code></a> and <a href="https://github.com/quanteda/stopwords" class="external-link"><code>stopwords</code></a>. For punctuations, we are aware that textfeatures package can be used to find the number of punctuations in a string. To calculate average word length, both textfeatures and qdap are able to find the count of words but they do not provide the average length. To count the number of fully capitalised words in a text, textfeatures provides a means to find the number of capitalized characters, but not to count them explicitly. In the case of stopwords, the package stopwords provides the list of stopwords in different languages. However, it does not have a function to remove stopwords from the text.</p>
 <p>Based on our experience in our previous module, all the functions that we seek to use require several lines of code. For example, to calculate the average word length, we need to extract the punctuation, count total number of characters, then averaging out over the number of words present. As such, we seek to simplify these tasks into functions that users, including ourselves, can employ in one line of code.</p>
 <!-- badges: start -->
-<!-- badges: end -->
+
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -151,7 +152,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/UBC-MDS/textfeatureinfor/actions" class="external-link"><img src="https://github.com/UBC-MDS/textfeatureinfor/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
