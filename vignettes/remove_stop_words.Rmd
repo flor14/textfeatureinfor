@@ -1,5 +1,5 @@
 ---
-title: "remove_stop_words"
+title: "Introduction to remove_stop_words"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{remove_stop_words}

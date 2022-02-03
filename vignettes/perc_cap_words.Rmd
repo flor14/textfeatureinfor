@@ -1,5 +1,5 @@
 ---
-title: "perc_cap_words"
+title: "Introduction to perc_cap_words"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{perc_cap_words}
