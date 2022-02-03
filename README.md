@@ -6,6 +6,8 @@
 [Link to the package
 website](https://ubc-mds.github.io/textfeatureinfor/)
 
+[![R-CMD-check](https://github.com/UBC-MDS/textfeatureinfor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-MDS/textfeatureinfor/actions/workflows/R-CMD-check.yaml)
+
 ## **Description**
 
 In Natural Language Processing, it is common for users to try and
@@ -61,6 +63,8 @@ present. As such, we seek to simplify these tasks into functions that
 users, including ourselves, can employ in one line of code.
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/UBC-MDS/textfeatureinfor/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/textfeatureinfor/actions)
 <!-- badges: end -->
 
 ## Installation
