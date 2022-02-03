@@ -2,7 +2,7 @@
 title: "Introduction to avg_word_len"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{avg_word_len}
+  %\VignetteIndexEntry{Introduction to avg_word_len}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -38,6 +38,15 @@
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/avg_word_len.html">Introduction to avg_word_len</a>
+    <a class="dropdown-item" href="articles/count_punc.html">Introduction to count_punc</a>
+    <a class="dropdown-item" href="articles/perc_cap_words.html">Introduction to perc_cap_words</a>
+    <a class="dropdown-item" href="articles/remove_stop_words.html">Introduction to remove_stop_words</a>
+  </div>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -53,25 +62,15 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="textfeatureinfor">textfeatureinfor<a class="anchor" aria-label="anchor" href="#textfeatureinfor"></a>
 </h1></div>
+<p><a href="https://ubc-mds.github.io/textfeatureinfor/" class="external-link">Link to the package website</a></p>
+<!-- badges: start -->
+
 <div class="section level2">
 <h2 id="description">
 <strong>Description</strong><a class="anchor" aria-label="anchor" href="#description"></a>
 </h2>
-<p>In Natural Language Processing, it is common for users to try and
-engineer their own features from a given text. It can be difficult to
-extract certain features from text without using additional R tools.
-This R package includes functions that allows data scientists to extract
-information from text features which can be useful for feature
-engineering, or in other data science projects. Our package,
-textfeatureinfor, will help gather summary information from plain text
-such as the number of punctuations in the text, the average word lengths
-and the percentage of fully capitalised words which can be useful
-information for feature engineering. Additionally, our package can also
-manipulate text data by removing the stopwords for the ease of future
-processing steps.</p>
-<p>Our package and functions are inspired from a lab in the course, DSCI
-573 (Feature and model selection), of UBC MDS program, and are tailored
-based on our own experience and interest.</p>
+<p>In Natural Language Processing, it is common for users to try and engineer their own features from a given text. It can be difficult to extract certain features from text without using additional R tools. This R package includes functions that allows data scientists to extract information from text features which can be useful for feature engineering, or in other data science projects. Our package, textfeatureinfor, will help gather summary information from plain text such as the number of punctuations in the text, the average word lengths and the percentage of fully capitalised words which can be useful information for feature engineering. Additionally, our package can also manipulate text data by removing the stopwords for the ease of future processing steps.</p>
+<p>Our package and functions are inspired from a lab in the course, DSCI 573 (Feature and model selection), of UBC MDS program, and are tailored based on our own experience and interest.</p>
 </div>
 <div class="section level2">
 <h2 id="function-details">
@@ -79,43 +78,21 @@ based on our own experience and interest.</p>
 </h2>
 <ul>
 <li>
-<code>count_punc</code>: This function will count and return the
-number of punctuations within a given text.</li>
+<code>count_punc</code>: This function will count and return the number of punctuations within a given text.</li>
 <li>
-<code>avg_word_len</code>: This function will calculate and return
-the average length of words within a given text.</li>
+<code>avg_word_len</code>: This function will calculate and return the average length of words within a given text.</li>
 <li>
-<code>perc_cap_words</code>: This function will calculate the
-percentage of fully capitalised words in the text.</li>
+<code>perc_cap_words</code>: This function will calculate the percentage of fully capitalised words in the text.</li>
 <li>
-<code>remove_stop_words</code>: This function will find and remove
-the stop words in a text and will return the list of clean words.</li>
+<code>remove_stop_words</code>: This function will find and remove the stop words in a text and will return the list of clean words.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="r-ecosystem">
 <strong>R Ecosystem</strong><a class="anchor" aria-label="anchor" href="#r-ecosystem"></a>
 </h2>
-<p>In the field of text feature engineering, we are cognisant that there
-are well established packages in the R ecosystem - specifically <a href="https://github.com/mkearney/textfeatures" class="external-link"><code>textfeatures</code></a>,
-<a href="http://trinker.github.io/qdap/" class="external-link"><code>qdap</code></a> and <a href="https://github.com/quanteda/stopwords" class="external-link"><code>stopwords</code></a>.
-For punctuations, we are aware that textfeatures package can be used to
-find the number of punctuations in a string. To calculate average word
-length, both textfeatures and qdap are able to find the count of words
-but they do not provide the average length. To count the number of fully
-capitalised words in a text, textfeatures provides a means to find the
-number of capitalized characters, but not to count them explicitly. In
-the case of stopwords, the package stopwords provides the list of
-stopwords in different languages. However, it does not have a function
-to remove stopwords from the text.</p>
-<p>Based on our experience in our previous module, all the functions
-that we seek to use require several lines of code. For example, to
-calculate the average word length, we need to extract the punctuation,
-count total number of characters, then averaging out over the number of
-words present. As such, we seek to simplify these tasks into functions
-that users, including ourselves, can employ in one line of code.</p>
-<!-- badges: start -->
-<!-- badges: end -->
+<p>In the field of text feature engineering, we are cognisant that there are well established packages in the R ecosystem - specifically <a href="https://github.com/mkearney/textfeatures" class="external-link"><code>textfeatures</code></a>, <a href="http://trinker.github.io/qdap/" class="external-link"><code>qdap</code></a> and <a href="https://github.com/quanteda/stopwords" class="external-link"><code>stopwords</code></a>. For punctuations, we are aware that textfeatures package can be used to find the number of punctuations in a string. To calculate average word length, both textfeatures and qdap are able to find the count of words but they do not provide the average length. To count the number of fully capitalised words in a text, textfeatures provides a means to find the number of capitalized characters, but not to count them explicitly. In the case of stopwords, the package stopwords provides the list of stopwords in different languages. However, it does not have a function to remove stopwords from the text.</p>
+<p>Based on our experience in our previous module, all the functions that we seek to use require several lines of code. For example, to calculate the average word length, we need to extract the punctuation, count total number of characters, then averaging out over the number of words present. As such, we seek to simplify these tasks into functions that users, including ourselves, can employ in one line of code.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -128,8 +105,7 @@ that users, including ourselves, can employ in one line of code.</p>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common
-problem:</p>
+<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">textfeatureinfor</span><span class="op">)</span>
 <span class="fu"><a href="reference/count_punc.html">count_punc</a></span><span class="op">(</span><span class="st">"Hello, World!"</span><span class="op">)</span>
@@ -175,7 +151,12 @@ problem:</p>
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/UBC-MDS/textfeatureinfor/actions" class="external-link"><img src="https://github.com/UBC-MDS/textfeatureinfor/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
@@ -183,14 +164,12 @@ problem:</p>
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Lynn Wu, Kiran Phaterpekar, Jacqueline Chong, Paniz
-Fazlali.</p>
+<p>Developed by Lynn Wu, Kiran Phaterpekar, Jacqueline Chong, Paniz Fazlali.</p>
 </div>
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
     </footer>

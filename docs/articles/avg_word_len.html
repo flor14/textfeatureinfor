@@ -43,8 +43,8 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/avg_word_len.html">Introduction to avg_word_len</a>
     <a class="dropdown-item" href="../articles/count_punc.html">Introduction to count_punc</a>
-    <a class="dropdown-item" href="../articles/perc_cap_words.html">perc_cap_words</a>
-    <a class="dropdown-item" href="../articles/remove_stop_words.html">remove_stop_words</a>
+    <a class="dropdown-item" href="../articles/perc_cap_words.html">Introduction to perc_cap_words</a>
+    <a class="dropdown-item" href="../articles/remove_stop_words.html">Introduction to remove_stop_words</a>
   </div>
 </li>
       </ul>
@@ -76,44 +76,28 @@
 <div class="section level2">
 <h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
 </h2>
-<p>During Natural Language Processing (NLP), data scientists may want: -
-extract additional characteristics from text data - engineer their own
-features using these additional characteristics - train their models
-with their engineered features for better model results</p>
-<p>The <code>avg_word_len</code> function from the
-<code>textfeatureinfo</code> package is one of four functions that aids
-in this text data extraction process. Specifically,
-<code>avg_word_len</code> makes it easy to extract the average length of
-words inside of a piece of text.</p>
-<p>This document provides detailed instructions on how to apply the
-<code>avg_word_len</code> function on text data for quick access to a
-new feature that can be added into various machine learning models.</p>
-<p>You can start by loading the <code>textfeatureinfo</code>
-package:</p>
+<p>During Natural Language Processing (NLP), data scientists may want: - extract additional characteristics from text data - engineer their own features using these additional characteristics - train their models with their engineered features for better model results</p>
+<p>The <code>avg_word_len</code> function from the <code>textfeatureinfo</code> package is one of four functions that aids in this text data extraction process. Specifically, <code>avg_word_len</code> makes it easy to extract the average length of words inside of a piece of text.</p>
+<p>This document provides detailed instructions on how to apply the <code>avg_word_len</code> function on text data for quick access to a new feature that can be added into various machine learning models.</p>
+<p>You can start by loading the <code>textfeatureinfo</code> package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">textfeatureinfor</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-example-with-one-piece-of-text">Quick example with one piece of text<a class="anchor" aria-label="anchor" href="#quick-example-with-one-piece-of-text"></a>
 </h2>
-<p>To understand the basics of the <code>avg_word_len</code> function,
-we can take a look at its interaction with a simple text object.</p>
+<p>To understand the basics of the <code>avg_word_len</code> function, we can take a look at its interaction with a simple text object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"Star wars is my favourite movie"</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="../reference/avg_word_len.html">avg_word_len</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span> <span class="co"># the output of avg_word_len is rounded to 2 decimals</span>
 <span class="co">#&gt; [1] 4.33</span></code></pre></div>
-<p>From this basic example, we can see that the average length of words
-in this piece of text is <code>4.33</code>.</p>
+<p>From this basic example, we can see that the average length of words in this piece of text is <code>4.33</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="example-with-a-dataframe">Example with a dataframe<a class="anchor" aria-label="anchor" href="#example-with-a-dataframe"></a>
 </h2>
-<p>Now that we understand how to use this function, let’s apply
-<code>avg_word_len</code> to an entire data set. This is more practical
-aspect of this function considering that feature extraction will need to
-be done for entire data-frames in order to be useful for machine
-learning models.</p>
+<p>Now that we understand how to use this function, let’s apply <code>avg_word_len</code> to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.</p>
 <p>Let’s first create a toy data-set with 5 examples:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>messages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
@@ -130,9 +114,7 @@ learning models.</p>
 <span class="co">#&gt; 3                       Never have I ever</span>
 <span class="co">#&gt; 4                  What a wonderful world</span>
 <span class="co">#&gt; 5 You should watch Spiderman: no way home</span></code></pre></div>
-<p>Now, we will leverage the <code>avg_word_len</code> function to
-extract the average word lengths from the toy data and add it as a new
-column in the toy data frame</p>
+<p>Now, we will leverage the <code>avg_word_len</code> function to extract the average word lengths from the toy data and add it as a new column in the toy data frame</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># applies avg_word_len function to each row in the data frame</span>
 <span class="va">toy_data</span><span class="op">[</span><span class="st">"average_word_lengths"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">toy_data</span><span class="op">[</span><span class="st">"messages"</span><span class="op">]</span>, 
@@ -147,17 +129,12 @@ column in the toy data frame</p>
 <span class="co">#&gt; 3                       Never have I ever                 3.50</span>
 <span class="co">#&gt; 4                  What a wonderful world                 4.75</span>
 <span class="co">#&gt; 5 You should watch Spiderman: no way home                 4.57</span></code></pre></div>
-<p>Now we have access to the average length of the words for each
-example message in the toy data frame.</p>
+<p>Now we have access to the average length of the words for each example message in the toy data frame.</p>
 </div>
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p>The <code>avg_word_len</code> function is simple, but has broad
-implications. It allows for easier extraction of useful text information
-in one line of code. This feature is useful for natural language
-processing and may prove useful when building machine learning
-models.</p>
+<p>The <code>avg_word_len</code> function is simple, but has broad implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -167,14 +144,12 @@ models.</p>
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Lynn Wu, Kiran Phaterpekar, Jacqueline Chong, Paniz
-Fazlali.</p>
+<p>Developed by Lynn Wu, Kiran Phaterpekar, Jacqueline Chong, Paniz Fazlali.</p>
 </div>
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
     </footer>

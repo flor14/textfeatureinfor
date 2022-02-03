@@ -2,7 +2,7 @@
 title: "Introduction to count_punc"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{count_punc}
+  %\VignetteIndexEntry{Introduction to count_punc}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

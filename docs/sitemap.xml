@@ -4,22 +4,37 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/articles/avg_word_len.html</loc>
+  </url>
+  <url>
+    <loc>/articles/count_punc.html</loc>
+  </url>
+  <url>
+    <loc>/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>/articles/perc_cap_words.html</loc>
+  </url>
+  <url>
+    <loc>/articles/remove_stop_words.html</loc>
+  </url>
+  <url>
+    <loc>/authors.html</loc>
+  </url>
+  <url>
     <loc>/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
     <loc>/CONTRIBUTING.html</loc>
   </url>
   <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
     <loc>/LICENSE-text.html</loc>
   </url>
   <url>
     <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
   </url>
   <url>
     <loc>/reference/avg_word_len.html</loc>

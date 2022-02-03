@@ -2,7 +2,7 @@
 title: "Introduction to remove_stop_words"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{remove_stop_words}
+  %\VignetteIndexEntry{Introduction to remove_stop_words}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
