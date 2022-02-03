@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
-pkgdown_sha: ~
+pkgdown: 2.0.2.9000
+pkgdown_sha: ae7363faac9040a473a54fb3d770decdfb8dfec1
 articles:
   avg_word_len: avg_word_len.html
   count_punc: count_punc.html
   perc_cap_words: perc_cap_words.html
   remove_stop_words: remove_stop_words.html
-last_built: 2022-02-03T21:18Z
+last_built: 2022-02-03T21:35Z
 
