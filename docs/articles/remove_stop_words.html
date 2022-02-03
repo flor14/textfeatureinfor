@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="textfeatureinfor">
-<title>remove_stop_words • textfeatureinfor</title>
+<title>Introduction to remove_stop_words • textfeatureinfor</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="remove_stop_words">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to remove_stop_words">
 <meta property="og:description" content="textfeatureinfor">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -43,8 +43,8 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/avg_word_len.html">Introduction to avg_word_len</a>
     <a class="dropdown-item" href="../articles/count_punc.html">Introduction to count_punc</a>
-    <a class="dropdown-item" href="../articles/perc_cap_words.html">perc_cap_words</a>
-    <a class="dropdown-item" href="../articles/remove_stop_words.html">remove_stop_words</a>
+    <a class="dropdown-item" href="../articles/perc_cap_words.html">Introduction to perc_cap_words</a>
+    <a class="dropdown-item" href="../articles/remove_stop_words.html">Introduction to remove_stop_words</a>
   </div>
 </li>
       </ul>
@@ -64,7 +64,7 @@
 
 <div class="row">
   <main id="main"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>remove_stop_words</h1>
+      <img src="" class="logo" alt=""><h1>Introduction to remove_stop_words</h1>
             
       
       
@@ -73,21 +73,112 @@
 
     
     
-<p>The library <code>textfeatureinfor</code> has for functions, one of
-which is <code>remove_stop_words</code>. Here we will explore the usage
-of this function.</p>
+<div class="section level2">
+<h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
+</h2>
+<p>During Natural Language Processing (NLP), data scientists may
+want:</p>
+<ul>
+<li>extract additional characteristics from text data</li>
+<li>engineer their own features using these additional
+characteristics</li>
+<li>train their models with their engineered features for better model
+results</li>
+</ul>
+<p>The <code>remove_stop_words</code> function from the
+<code>textfeatureinfo</code> package is one of four functions that aids
+in this text data extraction process. Specifically,
+<code>remove_stop_words</code> makes it easy to remove stopwords from a
+piece of text.</p>
+<p>This document provides detailed instructions on how to apply the
+<code>remove_stop_words</code> function on text data for quick access to
+a new feature that can be added into various machine learning
+models.</p>
+<p>You can start by loading the <code>textfeatureinfo</code>
+package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">textfeatureinfor</span><span class="op">)</span></code></pre></div>
-<p>We can pass a piece of text to this function. The function will
-remove all the stopwords and return a clean vector of all non-stopwords
-in the text.</p>
+</div>
+<div class="section level2">
+<h2 id="quick-example-with-one-piece-of-text">Quick example with one piece of text<a class="anchor" aria-label="anchor" href="#quick-example-with-one-piece-of-text"></a>
+</h2>
+<p>To understand the basics of the <code>remove_stop_words</code>
+function, we can take a look at its interaction with a simple text
+object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="st">"Tomorrow is a big day!"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "tomorrow"</span></code></pre></div>
-<p>This function is helpful in the NLP (Natural Language Processing)
-tasks. Before applying any machine learning procedures, we can
-preprocess the data by removing all the stopwords.</p>
-  </main>
+<code class="sourceCode R"><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"Two things are infinite: the universe and human stupidity; 
+and I'm not sure about the universe."</span>
+
+<span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span>
+<span class="co">#&gt; [1] "infinite"  "universe"  "human"     "stupidity" "\nand"     "universe"</span></code></pre></div>
+<p>From this basic example, we can see that only 5 words are not
+stopwords in this quote from Albert Einstein.</p>
+</div>
+<div class="section level2">
+<h2 id="example-with-a-dataframe">Example with a dataframe<a class="anchor" aria-label="anchor" href="#example-with-a-dataframe"></a>
+</h2>
+<p>Now that we understand how to use this function, let’s apply
+<code>remove_stop_words</code> to an entire data set. This is more
+practical aspect of this function considering that feature extraction
+will need to be done for entire data-frames in order to be useful for
+machine learning models.</p>
+<p>Let’s first create a toy data-set with 5 examples:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>messages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  <span class="st">"UBC MDS is an amazing program!"</span>,
+  <span class="st">"I don't like documentaries."</span>,
+  <span class="st">"I am impressed by what machine learning is capable of doing."</span>,
+  <span class="st">"NLP is a great way of processing text data."</span>,
+  <span class="st">"Isn't that AMAZING? Only two more blocks to go!!"</span>
+  <span class="op">)</span><span class="op">)</span>
+<span class="va">toy_data</span>
+<span class="co">#&gt;                                                       messages</span>
+<span class="co">#&gt; 1                               UBC MDS is an amazing program!</span>
+<span class="co">#&gt; 2                                  I don't like documentaries.</span>
+<span class="co">#&gt; 3 I am impressed by what machine learning is capable of doing.</span>
+<span class="co">#&gt; 4                  NLP is a great way of processing text data.</span>
+<span class="co">#&gt; 5             Isn't that AMAZING? Only two more blocks to go!!</span></code></pre></div>
+<p>Now, we will leverage the <code>remove_stop_words</code> function to
+extract non-stopwords from the toy data and add it as a new column in
+the toy data frame:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># applies remove_stop_words function to each row in the data frame</span>
+<span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="va">toy_data</span> |&gt;
+    <span class="fu">rowwise</span><span class="op">(</span><span class="op">)</span> |&gt;
+    <span class="fu">mutate</span><span class="op">(</span>non_stopwords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="va">messages</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> |&gt;
+    <span class="fu">unnest</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">non_stopwords</span><span class="op">)</span><span class="op">)</span>
+<span class="va">toy_data</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 2</span></span>
+<span class="co">#&gt;    messages                                                     non_stopwords</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> UBC MDS is an amazing program!                               ubc          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> UBC MDS is an amazing program!                               mds          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> UBC MDS is an amazing program!                               amazing      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> UBC MDS is an amazing program!                               program      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> I don't like documentaries.                                  documentaries</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> I am impressed by what machine learning is capable of doing. impressed    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> I am impressed by what machine learning is capable of doing. machine      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> I am impressed by what machine learning is capable of doing. learning     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> I am impressed by what machine learning is capable of doing. capable      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> NLP is a great way of processing text data.                  nlp          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> NLP is a great way of processing text data.                  processing   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> NLP is a great way of processing text data.                  data         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Isn't that AMAZING? Only two more blocks to go!!             amazing      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> Isn't that AMAZING? Only two more blocks to go!!             blocks</span></code></pre></div>
+<p>Now we have access to non-stopwords for each example message in the
+toy data frame.</p>
+</div>
+<div class="section level2">
+<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h2>
+<p>The <code>remove_stop_words</code> function is simple, but has broad
+implications. It allows for easier extraction of useful text information
+in one line of code. This feature is useful for natural language
+processing and may prove useful when building machine learning
+models.</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
