@@ -72,15 +72,87 @@
 
     
     
-<p>The library <code>textfeatureinfor</code> has for functions, one of which is <code>remove_stop_words</code>. Here we will explore the usage of this function.</p>
+<div class="section level2">
+<h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
+</h2>
+<p>During Natural Language Processing (NLP), data scientists may want:</p>
+<ul>
+<li>extract additional characteristics from text data</li>
+<li>engineer their own features using these additional characteristics</li>
+<li>train their models with their engineered features for better model results</li>
+</ul>
+<p>The <code>remove_stop_words</code> function from the <code>textfeatureinfo</code> package is one of four functions that aids in this text data extraction process. Specifically, <code>remove_stop_words</code> makes it easy to remove stopwords from a piece of text.</p>
+<p>This document provides detailed instructions on how to apply the <code>remove_stop_words</code> function on text data for quick access to a new feature that can be added into various machine learning models.</p>
+<p>You can start by loading the <code>textfeatureinfo</code> package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">textfeatureinfor</span><span class="op">)</span></code></pre></div>
-<p>We can pass a piece of text to this function. The function will remove all the stopwords and return a clean vector of all non-stopwords in the text.</p>
+</div>
+<div class="section level2">
+<h2 id="quick-example-with-one-piece-of-text">Quick example with one piece of text<a class="anchor" aria-label="anchor" href="#quick-example-with-one-piece-of-text"></a>
+</h2>
+<p>To understand the basics of the <code>remove_stop_words</code> function, we can take a look at its interaction with a simple text object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="st">"Tomorrow is a big day!"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "tomorrow"</span></code></pre></div>
-<p>This function is helpful in the NLP (Natural Language Processing) tasks. Before applying any machine learning procedures, we can preprocess the data by removing all the stopwords.</p>
-  </main>
+<code class="sourceCode R"><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"Two things are infinite: the universe and human stupidity; 
+and I'm not sure about the universe."</span>
+
+<span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span>
+<span class="co">#&gt; [1] "infinite"  "universe"  "human"     "stupidity" "\nand"     "universe"</span></code></pre></div>
+<p>From this basic example, we can see that only 5 words are not stopwords in this quote from Albert Einstein.</p>
+</div>
+<div class="section level2">
+<h2 id="example-with-a-dataframe">Example with a dataframe<a class="anchor" aria-label="anchor" href="#example-with-a-dataframe"></a>
+</h2>
+<p>Now that we understand how to use this function, let’s apply <code>remove_stop_words</code> to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.</p>
+<p>Let’s first create a toy data-set with 5 examples:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>messages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  <span class="st">"UBC MDS is an amazing program!"</span>,
+  <span class="st">"I don't like documentaries."</span>,
+  <span class="st">"I am impressed by what machine learning is capable of doing."</span>,
+  <span class="st">"NLP is a great way of processing text data."</span>,
+  <span class="st">"Isn't that AMAZING? Only two more blocks to go!!"</span>
+  <span class="op">)</span><span class="op">)</span>
+<span class="va">toy_data</span>
+<span class="co">#&gt;                                                       messages</span>
+<span class="co">#&gt; 1                               UBC MDS is an amazing program!</span>
+<span class="co">#&gt; 2                                  I don't like documentaries.</span>
+<span class="co">#&gt; 3 I am impressed by what machine learning is capable of doing.</span>
+<span class="co">#&gt; 4                  NLP is a great way of processing text data.</span>
+<span class="co">#&gt; 5             Isn't that AMAZING? Only two more blocks to go!!</span></code></pre></div>
+<p>Now, we will leverage the <code>remove_stop_words</code> function to extract non-stopwords from the toy data and add it as a new column in the toy data frame:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># applies remove_stop_words function to each row in the data frame</span>
+<span class="va">toy_data</span> <span class="op">&lt;-</span> <span class="va">toy_data</span> |&gt;
+    <span class="fu">rowwise</span><span class="op">(</span><span class="op">)</span> |&gt;
+    <span class="fu">mutate</span><span class="op">(</span>non_stopwords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="../reference/remove_stop_words.html">remove_stop_words</a></span><span class="op">(</span><span class="va">messages</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> |&gt;
+    <span class="fu">unnest</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">non_stopwords</span><span class="op">)</span><span class="op">)</span>
+<span class="va">toy_data</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 2</span></span>
+<span class="co">#&gt;    messages                                                     non_stopwords</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> UBC MDS is an amazing program!                               ubc          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> UBC MDS is an amazing program!                               mds          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> UBC MDS is an amazing program!                               amazing      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> UBC MDS is an amazing program!                               program      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> I don't like documentaries.                                  documentaries</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> I am impressed by what machine learning is capable of doing. impressed    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> I am impressed by what machine learning is capable of doing. machine      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> I am impressed by what machine learning is capable of doing. learning     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> I am impressed by what machine learning is capable of doing. capable      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> NLP is a great way of processing text data.                  nlp          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">11</span> NLP is a great way of processing text data.                  processing   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">12</span> NLP is a great way of processing text data.                  data         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Isn't that AMAZING? Only two more blocks to go!!             amazing      </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">14</span> Isn't that AMAZING? Only two more blocks to go!!             blocks</span></code></pre></div>
+<p>Now we have access to non-stopwords for each example message in the toy data frame.</p>
+</div>
+<div class="section level2">
+<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h2>
+<p>The <code>remove_stop_words</code> function is simple, but has broad implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
