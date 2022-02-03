@@ -12,18 +12,71 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(dplyr)
+library(tidyr)
 ```
 
-The library `textfeatureinfor` has for functions, one of which is `remove_stop_words`. Here we will explore the usage of this function.
+## Background
+
+During Natural Language Processing (NLP), data scientists may want:
+
+- extract additional characteristics from text data 
+- engineer their own features using these additional characteristics 
+- train their models with their engineered features for better model results
+
+The `remove_stop_words` function from the `textfeatureinfo` package is one of four functions that aids in this text data extraction process. Specifically, `remove_stop_words` makes it easy to remove stopwords from a piece of text.
+
+This document provides detailed instructions on how to apply the `remove_stop_words` function on text data for quick access to a new feature that can be added into various machine learning models.
+
+You can start by loading the `textfeatureinfo` package:
 
 ```{r setup}
 library(textfeatureinfor)
 ```
 
-We can pass a piece of text to this function. The function will remove all the stopwords and return a clean vector of all non-stopwords in the text.
+## Quick example with one piece of text
+
+To understand the basics of the `remove_stop_words` function, we can take a look at its interaction with a simple text object.
 
 ```{r}
-remove_stop_words("Tomorrow is a big day!")
+text <- "Two things are infinite: the universe and human stupidity; 
+and I'm not sure about the universe."
+
+remove_stop_words(text)
 ```
 
-This function is helpful in the NLP (Natural Language Processing) tasks. Before applying any machine learning procedures, we can preprocess the data by removing all the stopwords. 
+From this basic example, we can see that only 5 words are not stopwords in this quote from Albert Einstein.
+
+## Example with a dataframe
+
+Now that we understand how to use this function, let's apply `remove_stop_words` to an entire data set. This is more practical aspect of this function considering that feature extraction will need to be done for entire data-frames in order to be useful for machine learning models.
+
+Let's first create a toy data-set with 5 examples:
+
+```{r}
+toy_data <- data.frame(messages = c(
+  "UBC MDS is an amazing program!",
+  "I don't like documentaries.",
+  "I am impressed by what machine learning is capable of doing.",
+  "NLP is a great way of processing text data.",
+  "Isn't that AMAZING? Only two more blocks to go!!"
+  ))
+toy_data
+```
+
+Now, we will leverage the `remove_stop_words` function to extract non-stopwords from the toy data and add it as a new column in the toy data frame:
+
+```{r}
+# applies remove_stop_words function to each row in the data frame
+toy_data <- toy_data |>
+    rowwise() |>
+    mutate(non_stopwords = list(remove_stop_words(messages))) |>
+    unnest(cols = c(non_stopwords))
+toy_data
+```
+
+Now we have access to non-stopwords for each example message in the toy data frame.
+
+## Summary
+
+The `remove_stop_words` function is simple, but has broad implications. It allows for easier extraction of useful text information in one line of code. This feature is useful for natural language processing and may prove useful when building machine learning models.
