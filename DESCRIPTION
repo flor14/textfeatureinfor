@@ -27,7 +27,9 @@ Imports:
     rapportools,
     stopwords,
     stringr,
-    stringi
+    stringi,
+    dplyr,
+    tidyr
 Suggests: 
     rmarkdown,
     knitr,
